@@ -102,4 +102,4 @@ linkedList.push(20);
 linkedList.insertAt(1, 25);
 linkedList.pop();
 linkedList.deleteAt(0);
-linkedList.deleteAt(3);
+linkedList.deleteAt(1);
