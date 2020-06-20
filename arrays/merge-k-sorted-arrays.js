@@ -40,3 +40,27 @@ const merge = (leftArr, rightArr) => {
   }
   console.log(output.toString());
 })();
+
+/** Method 2 using hashing */
+
+(()=>{
+  console.log('*****Method 2****');
+  const output = {};
+  const result = [];
+  for(let i =0; i< arr.length; i++){
+    for(let j = 0; j< arr[i].length; j++) {
+      if(output[arr[i][j]]) {
+        output[arr[i][j]] = ++output[arr[i][j]];
+      } else {
+        output[arr[i][j]] = 1;
+      }
+    }
+  }
+  // Print object
+  for(let key in output) {
+    for(let i=0; i< output[key]; i++) {
+      result.push(parseInt(key));
+    }
+  }
+  console.log(result.toString());
+})()

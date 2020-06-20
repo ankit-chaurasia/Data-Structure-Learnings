@@ -19,13 +19,14 @@
 
 // q: an array of integers
 
+/** Method 1 */
 function swap(arr, index, target) {
   let temp = arr[index];
   arr[index] = arr[target];
   arr[target] = temp;
 }
 // Complete the minimumBribes function below.
-function minimumBribes(q) {
+function minimumBribes1(q) {
   let bribes = 0,
     chaotic = false;
   for (let i = q.length - 1; i >= 0; i--) {
@@ -45,11 +46,43 @@ function minimumBribes(q) {
     }
   }
   if (chaotic) {
-    console.log('Too chaotic');
+    console.log("Too chaotic");
   } else {
     console.log(bribes);
   }
 }
 
-minimumBribes([2, 1, 5, 3, 4]);
-minimumBribes([2, 5, 1, 3, 4])
+minimumBribes1([2, 1, 5, 3, 4]); // 3
+minimumBribes1([2, 5, 1, 3, 4]); // Too chaotic
+minimumBribes1([1, 2, 5, 3, 7, 8, 6, 4]); // 7
+
+console.log("\n******Method2********");
+/** Method 2 */
+function minimumBribes2(q) {
+  let minBribes = 0;
+  let expectedFirst = 1;
+  let expectedSecond = 2;
+  let expectedThird = 3;
+  for (let i = 0; i < q.length; i++) {
+    if (q[i] === expectedFirst) {
+      expectedFirst = expectedSecond;
+      expectedSecond = expectedThird;
+      expectedThird++;
+    } else if (q[i] === expectedSecond) {
+      minBribes++;
+      expectedSecond = expectedThird;
+      expectedThird++;
+    } else if (q[i] === expectedThird) {
+      minBribes = minBribes + 2;
+      expectedThird++;
+    } else {
+      console.log("Too chaotic");
+      return;
+    }
+  }
+  console.log(minBribes);
+}
+
+minimumBribes2([2, 1, 5, 3, 4]); // 3
+minimumBribes2([2, 5, 1, 3, 4]); // Too chaotic
+minimumBribes2([1, 2, 5, 3, 7, 8, 6, 4]); // 7

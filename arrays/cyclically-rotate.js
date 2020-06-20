@@ -1,5 +1,6 @@
 // Given an array, cyclically rotate the array clockwise by one.
 // Input:  arr[] = {1, 2, 3, 4, 5}
+// Output:  arr[] = {5, 1, 2, 3, 4}
 
 const arr = [1, 2, 3, 4, 5];
 

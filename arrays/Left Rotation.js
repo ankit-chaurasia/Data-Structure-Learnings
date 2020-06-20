@@ -4,12 +4,15 @@
 
 // Given an array a of n integers and a number, d, perform d left rotations on the array. Return the updated array to be printed as a single line of space-separated integers.
 
+
+/** Method 1 */
 function rotLeft(a, d) {
   for (let i = 0; i < d; i++) {
     a.push(a.shift());
   }
   return a;
 }
+console.log(rotLeft([1, 2, 3, 4, 5], 2));
 
 const reverseArray = (arr, start, end) => {
   let i = start;
@@ -24,12 +27,17 @@ const reverseArray = (arr, start, end) => {
   return arr;
 };
 
+/** Method 2 */
 const rotateArrayLeft = (arr, d) => {
   reverseArray(arr, 0, d - 1);
   reverseArray(arr, d, arr.length - 1);
   reverseArray(arr, 0, arr.length - 1);
   return arr;
 };
-
-console.log(rotLeft([1, 2, 3, 4, 5], 2));
 console.log(rotateArrayLeft([1, 2, 3, 4, 5], 2));
+
+/** Method 3 */
+const rotateArrBySlice = (arr, d) => {
+  return arr.slice(d).concat(arr.slice(0, d));
+}
+console.log(rotateArrBySlice([1, 2, 3, 4, 5], 2));
