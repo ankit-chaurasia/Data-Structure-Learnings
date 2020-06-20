@@ -21,23 +21,23 @@
 
 // arr: an unordered array of integers
 
+const swap = (arr, index, target) => {
+  let temp = arr[index];
+  arr[index] = arr[target];
+  arr[target] = temp;
+};
+
 function minimumSwaps(arr) {
-  const visited = {};
   let swapCount = 0;
-  for (let i = 1; i <= arr.length; i++) {
-    visited[i] = true;
-    if (arr[i - 1] == i) {
-      continue;
-    }
-    let item = arr[i - 1];
-    while (!visited[item]) {
-      visited[item] = true;
-      item = arr[item - 1];
+  for (let i = 0; i < arr.length; i++) {
+    while (arr[i] !== i + 1) {
+      swap(arr, arr[i] - 1, i);
       swapCount++;
     }
   }
+  console.log("Sorted Array", arr.toString());
   return swapCount;
 }
 
-console.log(minimumSwaps([4, 3, 1, 2]));
-console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7]));
+console.log(minimumSwaps([4, 3, 1, 2])); // 3
+console.log(minimumSwaps([1, 3, 5, 2, 4, 6, 7])); // 3
