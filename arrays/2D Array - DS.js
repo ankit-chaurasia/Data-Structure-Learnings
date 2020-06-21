@@ -1,3 +1,4 @@
+// https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
 // Given a 6X6 2D Array, arr:
 
 // 1 1 1 0 0 0
