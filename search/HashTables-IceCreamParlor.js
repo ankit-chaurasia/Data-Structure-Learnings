@@ -38,23 +38,23 @@ const whatFlavors = (cost, money) => {
     const c2 = money - cost[i];
     if (c1 != c2 && res[c1] && res[c1].length && res[c2] && res[c2].length) {
       if (res[c1][0] < res[c2][0]) {
-        ans1 = res[c1][0] + 1;
-        ans2 = res[c2][0] + 1;
+        ans1 = res[c1][0];
+        ans2 = res[c2][0];
       } else {
-        ans1 = res[c2][0] + 1;
-        ans2 = res[c1][0] + 1;
+        ans1 = res[c2][0];
+        ans2 = res[c1][0];
       }
       break;
     }
     if (c1 == c2 && res[c1].length > 1) {
-      ans1 = res[c1][0] + 1;
-      ans2 = res[c1][1] + 1;
+      ans1 = res[c1][0];
+      ans2 = res[c1][1];
       break;
     }
   }
-  console.log(`${ans1} ${ans2}`);
+  console.log(`${ans1 + 1} ${ans2 + 1}`);
 };
 
-whatFlavors([1, 4, 5, 3, 2], 4);    // 1 4
-whatFlavors([2, 2, 4, 3], 4);   // 1 2
-whatFlavors([1, 2, 3, 5, 6], 5);    // 2 3
+whatFlavors([1, 4, 5, 3, 2], 4); // 1 4
+whatFlavors([2, 2, 4, 3], 4); // 1 2
+whatFlavors([1, 2, 3, 5, 6], 5); // 2 3
