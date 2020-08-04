@@ -24,7 +24,7 @@ class LinkedList {
     } else {
       let previous = null;
       let current = this.head;
-      while(current.next !== null) {
+      while (current.next !== null) {
         previous = current;
         current = current.next;
       }
@@ -35,13 +35,13 @@ class LinkedList {
   };
 
   deleteAt = (index) => {
-    if(index >=0 && index <= this.size()) {
-      if(index === 0) {
+    if (index >= 0 && index <= this.size()) {
+      if (index === 0) {
         this.head = this.head.next;
       } else {
         let previous = null;
         let current = this.head;
-        for(let i = 1; i <= index && current.next !== null; i++ ) {
+        for (let i = 1; i <= index && current.next !== null; i++) {
           previous = current;
           current = current.next;
         }
@@ -49,10 +49,10 @@ class LinkedList {
       }
       this.count--;
     } else {
-      console.log('Invalid index', index);
+      console.log("Invalid index", index);
     }
     console.log("Deleted at:", index, " Size: ", this.size(), this.toString());
-  }
+  };
 
   insertAt = (index, element) => {
     if (index >= 0 && index <= this.size()) {
@@ -87,7 +87,22 @@ class LinkedList {
       current = current.next;
       objString = `${objString}, ${current.element}`;
     }
-    return `** ${objString} **`;
+    console.log(`Outout: ** ${objString} **`);
+  };
+
+  reverseLinkedList = () => {
+    let current = this.head;
+    let prev = null,
+      next = null;
+    while (current !== null) {
+      next = current.next;
+      current.next = prev;
+      // update the pointers
+      prev = current;
+      current = next;
+    }
+    this.head = prev;
+    console.log(this.toString());
   };
 }
 
@@ -103,3 +118,5 @@ linkedList.insertAt(1, 25);
 linkedList.pop();
 linkedList.deleteAt(0);
 linkedList.deleteAt(1);
+linkedList.toString();
+linkedList.reverseLinkedList();
