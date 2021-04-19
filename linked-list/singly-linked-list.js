@@ -199,7 +199,7 @@ class SinglyLinkedList {
 
   reverse() {
     console.log("** Reversing the list **");
-    console.log(`Old Head ${this.head.val}, new Tail ${this.tail.val}`);
+    console.log(`Old Head ${this.head.val}, old Tail ${this.tail.val}`);
     let current = this.head;
     let prev = null;
     let next = null;
