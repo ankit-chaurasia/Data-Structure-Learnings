@@ -23,9 +23,14 @@ class PriorityQueue {
     const bubbleUp = (index) => {
       if (index < 0) return;
       const parentIndex = Math.floor((index - 1) / 2);
+      // If priority is greater than swap
       if (this.value[parentIndex] && this.value[index] && this.value[parentIndex].priority < this.value[index].priority) {
         this.swap(index, parentIndex);
       }
+      // If you want to give low priority value as high priority than use below
+      // if (this.value[parentIndex] && this.value[index] && this.value[parentIndex].priority > this.value[index].priority) {
+      //   this.swap(index, parentIndex);
+      // }
       bubbleUp(parentIndex);
     }
     bubbleUp(this.value.length - 1);
