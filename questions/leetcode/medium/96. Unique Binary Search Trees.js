@@ -1,6 +1,9 @@
 // https://leetcode.com/problems/unique-binary-search-trees/
 // Given an integer n, return the number of structurally unique BST's (binary search trees) which has exactly
 // n nodes of unique values from 1 to n.
+
+// https://www.youtube.com/watch?v=0pTN0qzpt-Y
+// catalanNumber is very important, 10 other problem can be solved using catalan number
 /**
  * @param {number} n
  * @return {number}
