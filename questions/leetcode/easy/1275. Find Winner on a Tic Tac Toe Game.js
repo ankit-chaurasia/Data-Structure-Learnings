@@ -103,9 +103,9 @@ var tictactoe = function (moves) {
     return win["3"];
   } else if (row.includes(-3) || col.includes(-3)) {
     return win["-3"];
-  } else if (moves.length < 9) {
-    return "Pending";
-  } else {
+  } else if (moves.length === 9) {
     return "Draw";
+  } else {
+    return "Pending";
   }
 };
