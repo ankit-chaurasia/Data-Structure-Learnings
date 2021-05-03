@@ -77,6 +77,71 @@ class Trie {
             this.suggestionRecursion(root, key);
         }
     }
+
+    maxDepthDFS(root) {
+        //if root is undefined, depth is 0
+        if (!root) return 0
+        // variable to store the maximum levels
+        let max = 0
+        //helper function to traverse the tree
+        //recursively increment the levels by one
+        const dfs = (node, levels) => {
+            if (!node) return 0;
+            //compare levels and max to pass the maximum levels
+            if (levels > max) max = levels
+            //traverse all children of the current node
+            for (let child of node.children) {
+                //increment the levels by one
+                dfs(child, levels + 1);
+            }
+        }
+        //when root is not null, the tree has at least one level,
+        //so we pass down 1
+        dfs(root, 1)
+        //return the maximum levels
+        console.log("Max Depth DFS:", max);
+        return max
+    }
+
+    maxDepthBFS(root) {
+        //check if root is null
+        if (!root) return 0
+        //implement queue to complete traversing
+        let queue = []
+        //variable to increment while counting levels
+        let depth = 0
+        //push the root to the queue
+        queue.push(root)
+
+        //start traverse
+        while (queue.length > 0) {
+            //n-ary with children, 
+            //queue sometimes has multiple nodes of the same level
+            //we need to iterate all nodes
+            let size = queue.length
+            //set current variable to store current node
+            let current
+            //loop through the queue
+            for (let i = 0; i < size; i++) {
+                //set current as first node in the queue
+                current = queue.shift();
+                if (current) {
+                    //iterate the children of the current node
+                    for (let child of current.children) {
+                        //push child of the same level in the queue
+                        queue.push(child)
+                    }
+                }
+            }
+            //after iterate same level node and move to the next level
+            //increment the depth by one
+            depth++
+        }
+
+        //return the number of levels in the tree
+        console.log("Max Depth BFS:", depth);
+        return depth
+    }
 }
 
 var trie = new Trie();
@@ -108,4 +173,6 @@ var trie = new Trie();
     // console.log(trie.search(root, "hel"));
 
     trie.printAutoSuggestions(root, "hel");
+    // trie.maxDepthDFS(root);
+    trie.maxDepthBFS(root);
 })();
