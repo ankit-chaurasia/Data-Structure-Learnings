@@ -35,20 +35,6 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var reverseLinkedList = (node) => {
-  let prev = null;
-  let next = null;
-  let current = node;
-  while (current) {
-    next = current.next;
-    current.next = prev;
-    // update pointers
-    prev = current;
-    current = next;
-  }
-  this.head = prev;
-  return prev;
-};
 var addTwoNumbers = function (l1, l2) {
   let sum = 0;
   let carry = 0;
