@@ -17,6 +17,8 @@
  * This is the longest common subsequence problem.
  */
 
+// Problem explanation https://www.youtube.com/watch?v=LAKWWDX3sGw
+
 // Complete the commonChild function below.
 const commonChild = (s1, s2) => {
   const n = s1.length;
